@@ -55,7 +55,7 @@
         </div>
     </nav> --}}
 
-    <div class="h-50 position-relative" style="background-image: url('img/Header2.png'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+    <div class="h-50 position-relative" style="background-image: url('img/kolamrenang.png'); background-position: center; background-repeat: no-repeat; background-size: cover;">
         <nav class="navbar navbar-expand-lg bg-transparant">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
@@ -89,87 +89,51 @@
                 </div>
             </div>
         </nav>
-
-        <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
-            <h1>Pesona Indonesia</h1>
-            <p>Ayo kita jelajahi keindahan alam Indonesia</p>
-        </div>
     </div>
 
     <!-- End Header -->
 
     <!-- Content -->
-    <div class="bg mt-5">
-        <nav class="navbar bg-body-tertiary row">
-            <div class="container-fluid d-flex justify-content-center">
-                <form class="d-flex input-group w-auto" role="search">
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">
-                        <img src="img/searchicon.png" alt="Search" width="30" height="30">
-                    </button>
-                </form>
+        <div class="alamat p-3">
+            <div class="text mb-2 fs-3">
+                Margacinta Park
             </div>
-        </nav>
-    </div>
-
-    <div class="mt-5 text-center text-justify" style="font-size: 22">
-        <p>Nikmati liburan anda dengan kami,
-            <br> jangan khawatir kami selalu membantu anda.
-            <br> Happy Holiday</p>
-    </div>
-
-    <div id="hero" class="mt-5">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card" style="width: 70rem; padding-right:200px; background-color: #83979C">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6" >
-                                <p class="card-text" style="font-size: 22">This is</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="/img/Bromo2.png" alt="" style="width: 1000px; padding-left:100px; padding-top: 40px; padding-bottom: 40px">
-                            </div>
-                        </div>
-                    </div>
-                  </div>
+            <div class="lokasi d-flex gap-3 mb-2">
+                <img src="img/iconlokasi.png" alt="" width="25" height="25">
+                <p>Bandung,Jawa Barat</p>
+            </div>
+            <div class="jadwal d-flex gap-3 mb-2">
+                <img src="img/iconjam.png" alt="" width="25" height="25">
+                <p>Setiap Hari</p>
             </div>
         </div>
-    </div>
-
-
-    <div class="container mt-5">
-        <h1 class="text-center mb-5">Choose Your Destination</h1>
-
-        <div class="container mt-5">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-              <div class="col">
-                <div class="card border-0 h-100">
-                  <img src="img/Bromo.png" class="card-img-top" alt="...">
-                  <div class="card-body text-center">
-                    <h5 class="card-title">Bromo</h5>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card border-0 h-100">
-                  <img src="img/Bromo.png" class="card-img-top" alt="...">
-                  <div class="card-body text-center">
-                    <h5 class="card-title">Bromo</h5>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card border-0 h-100">
-                  <img src="img/Bromo.png" class="card-img-top" alt="...">
-                  <div class="card-body text-center">
-                    <h5 class="card-title">Bromo</h5>
-                  </div>
-                </div>
-              </div>
+        <h1 class="text-center mb-2">Informasi Wisata</h1>
+        <div class="informasi mx-5 rounded-pill" style="background-color: #82969B;">
+            <p class="p-5">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore quam qui earum omnis commodi eum nostrum enim. Debitis,
+            <br>excepturi tempora pariatur velit perspiciatis a nemo maxime molestias tempore at exercitationem temporibus, itaque rem ipsum soluta enim nisi! Perferendis cumque enim ad, laboriosam ab, ipsum ipsam, nisi tenetur dolores quaerat quos voluptatibus. Quos, sequi officiis. Nesciunt ad laudantium mollitia neque! Aliquam eveniet, deserunt nisi dolore officiis veniam obcaecati facilis, voluptatibus quas cupiditate nobis quidem? Eius rerum provident optio omnis, fugiat ad nobis, nostrum iusto officiis possimus magni laboriosam facilis asperiores incidunt temporibus totam magnam nemo? Atque hic reprehenderit veritatis at ratione!</p>
+        </div>
+        <h1 class="text-center mb-2 mt-5">Detail Lokasi</h1>
+        <div class="informasi mx-5 p-5 rounded-3" style="background-color: #82969B;">
+            <iframe class="" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.4596049380134!2d107.64536917454137!3d-6.9549860680909825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e9cd0f2d3ccf%3A0x46036f6ce95b7a2e!2sMargacinta%20Park!5e0!3m2!1sen!2sid!4v1703495063323!5m2!1sen!2sid" width="1700" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="tanggal mt-5 mx-5 text-center">
+            <form action="">
+                <div class="mb-3">
+                <label for="syarat" class="form-label fs-1">Pilih Tanggal</label>
+                <input type="date" style="background-color: #82969B;" class="form-control" id="syarat" name="syarat" placeholder="Tuliskan Syarat dan Ketentuan terkait Wisata Anda." required>
             </div>
         </div>
-    </div>
+        <div class="pesen mx-5 rounded-3 mb-2 p-3" style="background-color: #82969B;">
+            <div class="text fs-4">
+                Margacinta Waterpark Ticket
+            </div>
+            <div class="line mb-3"></div>
+            <div class="detail d-flex justify-content-between">
+                <div class="harga fs-5">Rp 50.000</div>
+                <button class="btn border border-secondary rounded-pill" style="background-color: #072F39; color:white" type="submit">{{ __('Pilih Tiket') }}</button>
+            </form>
+            </div>
+        </div>
     <!-- End Content -->
 
     <!-- footer -->

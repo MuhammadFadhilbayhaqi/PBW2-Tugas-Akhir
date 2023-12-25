@@ -202,7 +202,7 @@
         </div>
     </nav> --}}
 
-    <div class="h-50 position-relative" style="background-image: url('img/Header1.png');">
+    <div class="h-50 position-relative" style="background-image: url('img/Header1.png'); background-position: center; background-repeat: no-repeat; background-size: cover;">
         <nav class="navbar navbar-expand-lg bg-transparant">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
@@ -223,7 +223,7 @@
         </nav>
 
         <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
-            <h1>Journey exploring the world</h1>
+            <h1>Journey exploring indonesia</h1>
             <p>Ayo kita jelajahi keindahan alam indonesia</p>
         </div>
     </div>
@@ -232,7 +232,7 @@
 
     <!-- Content -->
     <div class="bg mt-5">
-        <nav class="navbar bg-body-tertiary">
+        <nav class="navbar bg-body-tertiary row">
             <div class="container-fluid d-flex justify-content-center">
                 <form class="d-flex input-group w-auto" role="search">
                     <input class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -243,35 +243,65 @@
             </div>
         </nav>
     </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
-        <div class="col">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+    <div class="mt-5 text-center text-justify" style="font-size: 22">
+        <p>Nikmati liburan anda dengan kami,
+            <br> jangan khawatir kami selalu membantu anda.
+            <br> Happy Holiday</p>
+    </div>
+
+    <div id="hero" class="mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" style="width: 70rem; padding-right:200px; background-color: #83979C">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6" >
+                                <p class="card-text" style="font-size: 22">This is</p>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="/img/Bromo2.png" alt="" style="width: 1000px; padding-left:100px; padding-top: 40px; padding-bottom: 40px">
+                            </div>
+                        </div>
+                    </div>
+                  </div>
             </div>
-          </div>
         </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+    </div>
+
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">Choose Your Destination</h1>
+
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col">
+                <div class="card border-0 h-100">
+                  <img src="img/Bromo.png" class="card-img-top" alt="...">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Bromo</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card border-0 h-100">
+                  <img src="img/Bromo.png" class="card-img-top" alt="...">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Bromo</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card border-0 h-100">
+                  <img src="img/Bromo.png" class="card-img-top" alt="...">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Bromo</h5>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
         </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    </div>
     <!-- End Content -->
 
     <!-- footer -->
