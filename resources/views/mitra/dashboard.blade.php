@@ -50,7 +50,7 @@
 
     <!-- End Header -->
 
-    <!-- Content -->
+    {{-- <!-- Content -->
     <div class="bg" style="max-height: 100vh">
         <div class="atas p-5">
             <h1 class="mb-4 mt-4">Daftar Wisata</h1>
@@ -85,40 +85,42 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center mb-4">
-        <a href="#" class="btn btn-primary rounded-pill" style="background-color: #072F39">Daftar Wisata</a>
+        <a href="{{ route('viewWisata') }}" class="btn btn-primary rounded-pill" style="background-color: #072F39">Daftar Wisata</a>
     </div>
 
-    <!-- End Content -->
+
+    <!-- End Content --> --}}
+
+    <!-- Content -->
+<div class="bg" style="max-height: 100vh">
+    <div class="atas p-5">
+        <h1 class="mb-4 mt-4">Daftar Wisata</h1>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach($wisatas as $wisata)
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="{{ asset('storage/' . $wisata->image) }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="{{ route('kelolaWisata') }}" class="btn btn-primary rounded-pill" style="background-color: #072F39">Kelola Wisata</a>
+
+
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center mb-4">
+        <a href="{{ route('viewWisata') }}" class="btn btn-primary rounded-pill" style="background-color: #072F39">Daftar Wisata</a>
+    </div>
+</div>
+<!-- End Content -->
+
 
     <!-- footer -->
     <footer class="text-center" style="background-color: #FFFFFF">
-        <!-- Grid container -->
-        {{-- <div class="container p-4 pb-0">
-          <!-- Section: Social media -->
-          <section class="mb-4">
-            <!-- Instagram -->
-            <a
-              data-mdb-ripple-init
-              class="btn text-white btn-floating m-1"
-              style="background-color: #ac2bac;"
-              href="#!"
-              role="button"
-              ><i class="bi bi-instagram"></i
-            ></a>
-
-            <!-- Github -->
-            <a
-              data-mdb-ripple-init
-              class="btn text-white btn-floating m-1"
-              style="background-color: #333333;"
-              href="#!"
-              role="button"
-              ><i class="bi bi-github"></i
-            ></a>
-          </section>
-          <!-- Section: Social media -->
-        </div> --}}
-        <!-- Grid container -->
 
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05); color: #2482C1">
@@ -126,12 +128,7 @@
         </div>
         <!-- Copyright -->
       </footer>
-    {{-- <footer class="text-center py-3" style="background-color: #2FB69F;">
-        <div class="container">
-          <span style="color: white;">copyright@2023</span>
-        </div>
-    </footer> --}}
-    <!-- End Footer-->
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">

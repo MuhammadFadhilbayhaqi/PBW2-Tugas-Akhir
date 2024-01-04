@@ -9,9 +9,15 @@ class Wisata extends Model
 {
     use HasFactory;
 
-    // protected $table = 'wisata';
+    protected $table = 'wisata';
+
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 
     protected $fillable = [
+        'user_id',
         'nama',
         'noHp',
         'alamatEmail',
@@ -20,6 +26,7 @@ class Wisata extends Model
         'kota',
         'provinsi',
         'kecamatan',
+        'harga',
         'jadwal',
         'jumlahTiket',
         'informasi',

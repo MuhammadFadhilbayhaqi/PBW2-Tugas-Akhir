@@ -17,7 +17,7 @@
     <!-- Header -->
     <nav class="navbar navbar-light" style="background-color: #072F39;">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="">
                 <img src="img/Logo.png" alt="" width="50" height="50">
             </a>
             <div class="d-flex">
@@ -28,6 +28,7 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Profile</a></li>
+                        <li><a class="dropdown-item" href="{{ route('history') }}">History</a></li>
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -56,92 +57,92 @@
             <h1>Pemesanan Anda</h1>
             <p class="text-center">Data Pemesanan</p>
 
-                <div class="form p-5 mt-5 mb-4 rounded" style="width: 30%; background: #82969B">
-                    <form method="POST" action="{{ route('registWisata') }}">
-                        @csrf
+                <div class="form p-5 mt-5 mb-4 rounded" style="width: 60%; background: #82969B">
+                   <!-- Form Pemesanan -->
+<div class="bg">
+    <div class="judul d-flex flex-column justify-content-center align-items-center mt-5">
+        <h1>Pemesanan Anda</h1>
+        <p class="text-center">Data Pemesanan</p>
 
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Title</label>
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                  Dropdown button
-                                </button>
-                                <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="#">Action</a></li>
-                                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                              </div>
-                            <x-input-error :messages="$errors->get('alamatEmail')" class="mt-2" />
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="noHp" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="noHp" name="noHp" placeholder="Tulis nomor telepon aktif dengan format 62xxx. Contoh: 628123456789" required>
-                            <x-input-error :messages="$errors->get('alamatEmail')" class="mt-2" />
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="alamatEmail" class="form-label">Nomor Handphone</label>
-                            <input type="email" class="form-control" id="alamatEmail" name="alamatEmail" placeholder="Tulis alamat email aktif dengan huruf kecil. Contoh: soto.kudus@xxxx.com" required>
-                            <x-input-error :messages="$errors->get('alamatEmail')" class="mt-2" />
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="alamatLengkap" class="form-label">Email</label>
-                            <input type="text" class="form-control" id="alamatLengkap" name="alamatLengkap" placeholder="Tulis alamat lengkap dengan nomor; RT/RW; kelurahan; kecamatan; dan patokan." required>
-                            <x-input-error :messages="$errors->get('alamatEmail')" class="mt-2" />
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="detail" class="form-label">Kartu Tanda Penduduk</label>
-                            <input type="text" class="form-control" id="detail" name="detail" placeholder="Masukan Detail Alamat Dengan Sesuai berupa link" required>
-                            <x-input-error :messages="$errors->get('alamatEmail')" class="mt-2" />
-                        </div>
-                        {{-- <div class="d-flex justify-content-end">
-                            <div class="text"></div>
-                            <button type="submit" class="btn btn-primary">Save</button>
-                        </div> --}}
-                    </form>
+        <div class="form p-5 mt-5 mb-4 rounded" style="width: 60%; background: #82969B">
+            <form method="POST" action="{{ route('pemesanan.store') }}">
+                @csrf
+                <div class="mb-3">
+                    <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
+                    <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" required>
+                    <x-input-error :messages="$errors->get('nama_lengkap')" class="mt-2" />
                 </div>
-            </div>
+
+                <div class="mb-3">
+                    <label for="nomor_handphone" class="form-label">Nomor Handphone</label>
+                    <input type="email" class="form-control" id="nomor_handphone" name="nomor_handphone" required>
+                    <x-input-error :messages="$errors->get('nomor_handphone')" class="mt-2" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email" name="email" required>
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                </div>
+
+                <div class="mb-3">
+                    <label for="ktp" class="form-label">Kartu Tanda Penduduk</label>
+                    <input type="text" class="form-control" id="ktp" name="ktp" required>
+                    <x-input-error :messages="$errors->get('ktp')" class="mt-2" />
+                </div>
         </div>
     </div>
+</div>
 
-    <div class="bg">
-        <div class="judul d-flex flex-column justify-content-center align-items-center mt-5">
-            <h4 class="text-center">Pembayaran</h4>
+<!-- Form Pembayaran -->
+<div class="bg">
+    <div class="judul d-flex flex-column justify-content-center align-items-center mt-5">
+        <p class="text-center fs-4">Pembayaran</p>
+        <div class="form p-3 mb-4 rounded" style="width: 60%; background: #82969B">
+                <div class="mb-3">
+                    <label for="metode_pembayaran" class="form-label">Metode Pembayaran</label>
+                    <select class="form-select" id="metode_pembayaran" name="metode_pembayaran" required>
+                        <option selected>Choose...</option>
+                        <option value="Bca - 7751330611">Bca - 7751330611</option>
+                        <option value="Mandiri - 141-00-1234567-8">Mandiri - 141-00-1234567-8</option>
+                    </select>
+                </div>
+                <div class="Rincian">
+                    <p class="fs-3">Rincian Harga</p>
+                    <div class="detail d-flex justify-content-between">
+                        <div>
+                            <p>Margacinta Waterpark Weekday Ticket Other x 1
+                                <br>Biaya Layanan
+                            </p>
+                        </div>
+                        <div>
+                            <p> Rp 50.000
+                                <br> Rp 50.000
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="line"></div>
+                <div class="total">
+                    <p class="fs-3">Harga Total</p>
+                    <div class="totalharga d-flex justify-content-between">
+                        <div>
+                            <p>Total Harga</p>
+                        </div>
+                        <div>
+                            <p> Rp 50.000</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <div class="text"></div>
+                    <button type="submit" class="btn rounded-pill" style="background-color: #072F39; color:#FFFFFF">Bayar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
-                <div class="form p-5 mt-5 mb-4 rounded" style="width: 30%; background: #82969B">
-                    <form method="POST" action="{{ route('registWisata') }}">
-                        @csrf
-
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Metode Pembayaran</label>
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                  Pilih Pembayaran
-                                </button>
-                                <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="#">Action</a></li>
-                                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                              </div>
-                            <x-input-error :messages="$errors->get('alamatEmail')" class="mt-2" />
-                        </div>
-                        <div class="Rincian">
-                            <h4>Rincian Harga</h4>
-                        </div>
-                        <div class="line"></div>
-                        <div class="total">
-                            <h4>Harga Total</h4>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <div class="text"></div>
-                            <button type="submit" class="btn btn-primary rounded-pill" style="background-color: #072F39">Bayar</button>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>

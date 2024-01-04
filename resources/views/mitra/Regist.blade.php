@@ -57,8 +57,8 @@
             <p class="text-center">Selamat datang di halaman Pendaftaran Wisata DESTIGUIDE. Untuk memulai proses pendaftaran Wisata Anda,
                 <br>silakan untuk bisa melengkapi data-data di halaman ini dengan benar.</p>
 
-                <div class="form p-5 mt-5 mb-4 rounded" style="width: 30%; background: #82969B">
-                    <form method="POST" action="{{ route('registWisata') }}">
+                <div class="form p-5 mt-5 mb-4 rounded" style="width: 55%; background: #82969B">
+                    <form action="{{ route('registWisata') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="mb-3">
@@ -106,52 +106,47 @@
                             <x-input-error :messages="$errors->get('alamatEmail')" class="mt-2" />
                         </div>
 
-                        {{-- <div class="mb-3">
-                            <div class="form-group">
-                                <label for="jadwal" class="form-label">Jadwal buka</label>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="jadwal" id="senin" value="Senin">
-                                    <label class="form-check-label" for="senin">Senin</label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="jadwal" id="selasa" value="Selasa">
-                                    <label class="form-check-label" for="selasa">Selasa</label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="jadwal" id="rabu" value="Rabu">
-                                    <label class="form-check-label" for="rabu">Rabu</label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="jadwal" id="kamis" value="Kamis">
-                                    <label class="form-check-label" for="kamis">Kamis</label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="jadwal" id="jumat" value="Jumat">
-                                    <label class="form-check-label" for="jumat">Jumat</label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="jadwal" id="sabtu" value="Sabtu">
-                                    <label class="form-check-label" for="sabtu">Sabtu</label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="jadwal" id="minggu" value="Minggu">
-                                    <label class="form-check-label" for="minggu">Minggu</label>
-                                </div>
-
-                                <x-input-error :messages="$errors->get('jadwal')" class="mt-2" />
-                            </div>
-                        </div> --}}
+                        <div class="mb-3">
+                            <label for="harga" class="form-label">Harga Tiket</label>
+                            <input type="number" class="form-control" id="harga" name="harga" placeholder="Masukkan harga tiket" required>
+                            <x-input-error :messages="$errors->get('harga')" class="mt-2" />
+                        </div>
 
                         <div class="mb-3">
-                            <label for="jumlahTiket" class="form-label">Tiket</label>
+                            <label for="jumlahTiket" class="form-label">Jumlah Tiket</label>
                             <input type="number" class="form-control" id="jumlahTiket" name="jumlahTiket" placeholder="Tulis dengan jelas Informasi Umum terkait Wisata Anda." required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="jadwal" class="form-label">Pilih Jadwal</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="jadwal[]" value="Senin">
+                                <label class="form-check-label" for="jadwal">Senin</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="jadwal[]" value="Selasa">
+                                <label class="form-check-label" for="jadwal">Selasa</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="jadwal[]" value="Rabu">
+                                <label class="form-check-label" for="jadwal">Rabu</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="jadwal[]" value="Kamis">
+                                <label class="form-check-label" for="jadwal">Kamis</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="jadwal[]" value="Jumat">
+                                <label class="form-check-label" for="jadwal">Jumat</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="jadwal[]" value="Sabtu">
+                                <label class="form-check-label" for="jadwal">Sabtu</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="jadwal[]" value="Minggu">
+                                <label class="form-check-label" for="jadwal">Minggu</label>
+                            </div>
                         </div>
 
                         <div class="mb-3">
@@ -163,10 +158,11 @@
                             <label for="syarat" class="form-label">Syarat & ketentuan</label>
                             <input type="text" class="form-control" id="syarat" name="syarat" placeholder="Tuliskan Syarat dan Ketentuan terkait Wisata Anda." required>
                         </div>
-                        {{-- <div class="mb-3">
+
+                        <div class="mb-3">
                             <label for="image" class="form-label">Lampirkan Beberapa Foto </label>
                             <input type="file" class="form-control" id="image" name="image" required>
-                        </div> --}}
+                        </div>
 
                         <div class="d-flex justify-content-end">
                             <div class="text"></div>

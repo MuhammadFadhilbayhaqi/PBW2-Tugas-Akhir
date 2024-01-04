@@ -17,6 +17,8 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
+    public const MITRA_HOME = '/mitra'; // Ganti dengan rute yang sesuai untuk mitra
+    // public const WISATAWAN_HOME = '/dashboard'; // Ganti
     public const HOME = '/dashboard';
 
     /**

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('wisata', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
             $table->string('nama');
             $table->string('noHp');
             $table->string('alamatEmail');

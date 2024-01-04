@@ -13,47 +13,22 @@
 </head>
 
 <body>
-    <!-- Header -->
-    {{-- <nav class="navbar navbar-light" style="background-color: #2FB69F;">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="img/Logo.png" alt="" width="50" height="50">
-            </a>
-            <div class="d-flex">
-                @auth
-                <div class="dropdown">
-                    <button class="btn dropdown-toggle bg-transparent text-light" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ Auth::user()->name }}
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Profile</a></li>
-                        <li>
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button class="dropdown-item" type="submit">Log Out</button>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-                <div class="dropdown">
-                    <button class="btn dropdown-toggle bg-transparent text-light" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="icon-notifikasi.png" alt="" width="20" height="20">
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Tidak Ada Notifikasi</a></li>
-                        <li>
-                        </li>
-                    </ul>
-                </div>
-                @else
-                    <a class="nav-link" href="{{ route('login') }}" style="color: white;">Login</a>
-                    @if (Route::has('register'))
-                        <a class="nav-link" href="{{ route('register') }}" style="color: white;">Register</a>
-                    @endif
-                @endauth
-            </div>
-        </div>
-    </nav> --}}
+
+    @if(session('error'))
+    <div class="alert alert-danger" id="errorAlert">
+        {{ session('error') }}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Menghilangkan pesan error setelah 10 detik
+            setTimeout(function(){
+                $('#errorAlert').fadeOut();
+            }, 5000);
+        });
+    </script>
+@endif
+
 
     <div class="h-50 position-relative" style="background-image: url('img/Header2.png'); background-position: center; background-repeat: no-repeat; background-size: cover;">
         <nav class="navbar navbar-expand-lg bg-transparant">
@@ -72,6 +47,7 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Profile</a></li>
+                        <li><a class="dropdown-item" href="{{ route('history') }}">History</a></li>
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -79,6 +55,7 @@
                             </form>
                         </li>
                     </ul>
+
                 </div>
                 @else
                     <a class="nav-link" href="{{ route('login') }}" style="color: white;">Login</a>
@@ -102,8 +79,8 @@
     <div class="bg mt-5">
         <nav class="navbar bg-body-tertiary row">
             <div class="container-fluid d-flex justify-content-center">
-                <form class="d-flex input-group w-auto" role="search">
-                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex input-group w-auto" role="search" action="{{ route('wisata.search') }}" method="GET">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="search">
                     <button class="btn btn-outline-success" type="submit">
                         <img src="img/searchicon.png" alt="Search" width="30" height="30">
                     </button>
@@ -118,6 +95,7 @@
             <br> Happy Holiday</p>
     </div>
 
+    @foreach($destinations->shuffle()->take(1) as $destination)
     <div id="hero" class="mt-5">
         <div class="row">
             <div class="col-md-12">
@@ -125,10 +103,11 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6" >
-                                <p class="card-text" style="font-size: 22">This is</p>
+                                <p class="card-text" style="font-size: 22">This is {{$destination->nama}}
+                                <br>{{$destination->informasi}}</p>
                             </div>
                             <div class="col-md-6">
-                                <img src="/img/Bromo2.png" alt="" style="width: 1000px; padding-left:100px; padding-top: 40px; padding-bottom: 40px">
+                                <img src="{{ asset('storage/' . $destination->image) }}" alt="" style="width: 1000px; padding-left:100px; padding-top: 40px; padding-bottom: 40px">
                             </div>
                         </div>
                     </div>
@@ -136,6 +115,7 @@
             </div>
         </div>
     </div>
+    @endforeach
 
 
     <div class="container mt-5">
@@ -143,34 +123,21 @@
 
         <div class="container mt-5">
             <div class="row row-cols-1 row-cols-md-3 g-4">
-              <div class="col">
-                <div class="card border-0 h-100">
-                  <img src="img/Bromo.png" class="card-img-top" alt="...">
-                  <div class="card-body text-center">
-                    <h5 class="card-title">Bromo</h5>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card border-0 h-100">
-                  <img src="img/Bromo.png" class="card-img-top" alt="...">
-                  <div class="card-body text-center">
-                    <h5 class="card-title">Bromo</h5>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card border-0 h-100">
-                  <img src="img/Bromo.png" class="card-img-top" alt="...">
-                  <div class="card-body text-center">
-                    <h5 class="card-title">Bromo</h5>
-                  </div>
-                </div>
-              </div>
+                @foreach($destinations->shuffle()->take(3) as $destination)
+                    <div class="col">
+                        <div class="card border-0 h-100">
+                            <img src="{{ asset('storage/' . $destination->image) }}" class="card-img-top" alt="...">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{ $destination->nama }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
-    <!-- End Content -->
+
+
 
     <!-- footer -->
     <footer class="text-center py-3 mt-5" style="background-color: #83979C;">

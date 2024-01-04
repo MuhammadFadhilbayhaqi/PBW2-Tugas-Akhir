@@ -23,14 +23,23 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
+
+
     public function store(LoginRequest $request): RedirectResponse
-    {
-        $request->authenticate();
+{
+    $request->authenticate();
+    $request->session()->regenerate();
 
-        $request->session()->regenerate();
-
+    // Check the role of the authenticated user
+    if (Auth::user()->role == 'mitra') {
+        // Redirect to the mitra home page
+        return redirect()->intended(RouteServiceProvider::MITRA_HOME);
+    } elseif (Auth::user()->role == 'Wisatawan') {
+        // Redirect to the wisatawan home page
         return redirect()->intended(RouteServiceProvider::HOME);
     }
+}
+
 
     /**
      * Destroy an authenticated session.

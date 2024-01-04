@@ -21,8 +21,7 @@
     <nav class="navbar navbar-light" style="background-color: #072F39;">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="{{ asset('images/Logo.png') }}" alt="" width="50" height="50">
-
+                <img src="img/Logo.png" alt="" width="50" height="50">
             </a>
             <div class="d-flex">
                 @auth
@@ -32,13 +31,13 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" href="{{ route('profile.edit') }}">Profile</a></li>
+                        <li><a class="dropdown-item" href="{{ route('history') }}">History</a></li>
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <button class="dropdown-item" type="submit">Log Out</button>
                             </form>
                         </li>
-
                     </ul>
                 </div>
 
@@ -54,13 +53,45 @@
 
 
     <!-- End Header -->
+    <div class="bg" style="height: 100vh; margin-left: 30px; margin-right: 30px;">
+        <h1 class="text-center mb-4">Daftar Transaksi</h1>
 
-    <!-- Content -->
-    <div class="bg">
-        @yield('Container')
+        @if(count($transactions) > 0)
+            <div class="table-responsive ">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Wisata ID</th>
+                            <th>Tanggal</th>
+                            <th>Nama Lengkap</th>
+                            <th>Nomor Handphone</th>
+                            <th>Email</th>
+                            <th>KTP</th>
+                            <th>Metode Pembayaran</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($transactions as $transaction)
+                            <tr>
+                                <td>{{ $transaction->id }}</td>
+                                <td>{{ $transaction->wisata_id }}</td>
+                                <td>{{ $transaction->tanggal }}</td>
+                                <td>{{ $transaction->nama_lengkap }}</td>
+                                <td>{{ $transaction->nomor_handphone }}</td>
+                                <td>{{ $transaction->email }}</td>
+                                <td>{{ $transaction->ktp }}</td>
+                                <td>{{ $transaction->metode_pembayaran }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        @else
+            <p class="text-center">Tidak ada transaksi.</p>
+        @endif
     </div>
 
-    <!-- End Content -->
 
     <!-- footer -->
     <footer class="text-center" style="background-color: #FFFFFF">
@@ -117,29 +148,7 @@
 <script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script src="//cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script>
-    $(document).ready(function() {
-     $('#myTable').DataTable({
-         processing: true,
-         serverSide: true,
-         ajax: '{!! route('getaWisata') !!}',
-         columns: [
-             { data: 'id', name: 'id' },
-             { data: 'nama', name: 'nama' },
-             { data: 'jumlahTiket', name: 'jumlahTiket' },
-             {
-                     data: null,
-                     render: function (data) {
-                         return '<a href="' + "{{ route('editWisata', '') }}" + '/' + data.id + '"><i class="bi bi-pencil-square"></i></a>';
-                     },
-                     orderable: false,
-                     searchable: false
-                 },
-         ]
-     });
- });
- </script>
+
 
 </body>
 
